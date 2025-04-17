@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoiteOptionsController">
+   <children>
+      <Label text="Options">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Taille de la police">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="taillePoliceSlider" prefHeight="30.0" prefWidth="200.0" />
+                  <Label text="A">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label text="Mode Sombre">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <RadioButton fx:id="clairRadio" mnemonicParsing="false" text="Clair">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="sombreRadio" mnemonicParsing="false" text="Sombre">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <Button fx:id="validerButton" mnemonicParsing="false" onAction="#handleValider" text="Valider" />
+            <Button fx:id="annulerButton" mnemonicParsing="false" onAction="#handleAnnuler" text="Quitter" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,66 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import javafx.scene.control.Button;
+
+public class ControleurBarreOutils {
+	  @FXML private Button jouerButton;
+	    @FXML private Button optionsButton;
+	    @FXML private Button aideButton;
+	    @FXML private Button quitterButton;
+	    private Stage boiteOptionsStage;
+	    @FXML
+	    private void handleJouer() {
+	        System.out.println("Jouer cliqué !");
+	    }
+
+	    @FXML
+	    private void handleOptions() {
+			if (boiteOptionsStage == null) {
+	            try {
+	                FXMLLoader loader = new FXMLLoader(getClass().getResource("boitStandard.fxml"));
+	                Parent root = loader.load();
+
+	                boiteOptionsStage = new Stage();
+	                boiteOptionsStage.setTitle("Options");
+	                boiteOptionsStage.setScene(new Scene(root));
+	                boiteOptionsStage.setResizable(false);
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+
+	        boiteOptionsStage.show();
+	    }
+
+	    @FXML
+	    private void handleAide() {
+	    	   try {
+	    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("boiteAlert.fxml")); // Remplace par le bon nom
+	    	        Parent root = loader.load();
+
+	    	        Stage stage = new Stage();
+	    	        stage.setTitle("Aide");
+	    	        stage.setScene(new Scene(root));
+	    	        stage.setResizable(false);
+	    	        stage.show();
+
+	    	    } catch (Exception e) {
+	    	        e.printStackTrace();
+	    	    }
+	    }
+
+	    @FXML
+	    private void handleQuitter() {
+	        System.exit(0);
+	    }
+	}
