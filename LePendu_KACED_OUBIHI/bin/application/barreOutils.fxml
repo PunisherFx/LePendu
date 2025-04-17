@@ -6,16 +6,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="50.0" prefWidth="200.0" spacing="10.0"
-      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="application.ControleurBarreOutils">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleurBarreOutils">
    <children>
       <Button fx:id="btnParametres" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#handleOptions">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/settings-icon-2.png" />
+                  <Image url="@../ressources/settings-icon-2.png" />
                </image>
             </ImageView>
          </graphic>
@@ -24,7 +21,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/aide.png" />
+                  <Image url="@../ressources/aide.png" />
                </image>
             </ImageView>
          </graphic>
@@ -33,7 +30,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/exit.png" />
+                  <Image url="@../ressources/exit.png" />
                </image>
             </ImageView>
          </graphic>
@@ -42,7 +39,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/play.png" />
+                  <Image url="@../ressources/play.png" />
                </image>
             </ImageView>
          </graphic>

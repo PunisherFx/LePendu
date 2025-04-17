@@ -31,7 +31,7 @@
       </VBox>
    </top>
    <left>
-      <Label text="Vies restantes" BorderPane.alignment="CENTER">
+      <Label fx:id="labelVie" text="Vies restantes" BorderPane.alignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
@@ -41,7 +41,7 @@
       </Label>
    </left>
    <right>
-      <Label text="Zone Daffichage" BorderPane.alignment="CENTER">
+      <Label fx:id="labelAffichage" text="Zone Daffichage" BorderPane.alignment="CENTER">
          <font>
             <Font size="19.0" />
          </font>
@@ -53,14 +53,14 @@
    <center>
       <VBox alignment="CENTER" prefHeight="0.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Mot à deviner">
+            <Label fx:id="labelMot" text="Mot à deviner">
                <font>
                   <Font size="24.0" />
                </font>
                <VBox.margin>
                   <Insets />
                </VBox.margin></Label>
-            <ImageView fitHeight="120.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="labelImage" fitHeight="120.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin></ImageView>
