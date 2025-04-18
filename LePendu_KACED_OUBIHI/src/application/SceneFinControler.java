@@ -27,7 +27,7 @@ public class SceneFinControler {
 	    }
 
 	    public void afficherDefaite() {
-	    	rootFin.setStyle("-fx-background-image: url('" + getClass().getResource("/ressources/defaite.jpg").toExternalForm() + "');"
+	    	rootFin.setStyle("-fx-background-image: url('" + getClass().getResource("/ressources/defaite.png").toExternalForm() + "');"
 	                   + "-fx-background-size: cover;"
 	                   + "-fx-background-position: center center;");
 	        labelAffichage.setText("😞 Dommage !\nLe mot à trouver était " + jeu.getMotMystere());
