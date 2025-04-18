@@ -1,0 +1,32 @@
+/* Titre "Partie Terminée" */
+.labelTitre {
+    -fx-background-color: #001d8b; /* bleu foncé */
+    -fx-text-fill: gold; /* doré */
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.3, 2, 2);
+}
+
+/* Sous-titre type "Bien joué !" */
+.labelAffichage {
+    -fx-background-color: #001d8b;
+    -fx-text-fill: white; /* texte en blanc */
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.3, 2, 2);
+}
+
+/* Zone de conseil */
+.labelMessage {
+    -fx-background-color: #a6ddff;
+    -fx-text-fill: black; /* texte en noir */
+    -fx-font-size: 16px;
+    -fx-padding: 15px;
+    -fx-background-radius: 15;
+    -fx-border-color: #00000050;
+    -fx-border-width: 1px;
+}
