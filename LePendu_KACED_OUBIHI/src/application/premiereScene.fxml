@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" styleClass="vbox-background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleurBarreOutils">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" spacing="20.0" styleClass="vbox-background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleurBarreOutils">
    <children>
-      <Label text="LE PENDU" textAlignment="CENTER">
+      <Label styleClass="label-titre" text="LE PENDU" textAlignment="CENTER">
          <font>
             <Font size="45.0" />
          </font>
@@ -18,38 +18,38 @@
             <Insets bottom="30.0" />
          </VBox.margin>
       </Label>
-      <Button fx:id="jouerButton" mnemonicParsing="false" onAction="#handleJouer" prefHeight="30.0" prefWidth="100.0" text="JOUER">
+      <Button fx:id="jouerButton" mnemonicParsing="false" onAction="#handleJouer" prefHeight="30.0" prefWidth="100.0" styleClass="bouton-accueil" text="JOUER">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/play.png" />
+                  <Image url="@../ressources/play.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#handleOptions" prefHeight="30.0" prefWidth="100.0" text="Options">
+      <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#handleOptions" prefHeight="30.0" prefWidth="100.0" styleClass="bouton-accueil" text="Options">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/settings-icon-2.png" />
+                  <Image url="@../ressources/settings-icon-2.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="aideButton" mnemonicParsing="false" onAction="#handleAide" prefHeight="30.0" prefWidth="100.0" text="  Aide">
+      <Button fx:id="aideButton" mnemonicParsing="false" onAction="#handleAide" prefHeight="30.0" prefWidth="100.0" styleClass="bouton-accueil" text="  Aide">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/aide.png" />
+                  <Image url="@../ressources/aide.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="quitterButton" mnemonicParsing="false" onAction="#handleQuitter" prefHeight="30.0" prefWidth="100.0" text="Quitter">
+      <Button fx:id="quitterButton" mnemonicParsing="false" onAction="#handleQuitter" prefHeight="30.0" prefWidth="100.0" styleClass="bouton-accueil" text="Quitter">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../ressources/exit.png" />
+                  <Image url="@../ressources/exit.png" />
                </image>
             </ImageView>
          </graphic>

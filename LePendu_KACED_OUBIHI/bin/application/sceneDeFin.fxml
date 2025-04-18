@@ -5,21 +5,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneFinControler">
+<VBox fx:id="rootFin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="15.0" stylesheets="@sceneFin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneFinControler">
    <children>
-      <Label text="Partie Terminer">
+      <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="350.0" styleClass="labelTitre" text="Partie Terminer" textAlignment="CENTER">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
+      <Label fx:id="labelAffichage" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="400.0" styleClass="labelAffichage" text="Label" wrapText="true" />
      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <fx:include source="barreOutils.fxml" />
             </HBox>
-      <Label fx:id="labelAffichage" text="text">
-         <font>
-            <Font size="41.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelMessage" text="Label" />
+      <Label fx:id="labelMessage" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="500.0" styleClass="labelMessage" text="Label" wrapText="true" />
    </children>
 </VBox>
