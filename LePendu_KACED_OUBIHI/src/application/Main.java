@@ -21,26 +21,14 @@ public class Main extends Application {
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("premiereScene.fxml"));
         	Parent root = loader.load();
         	ControleurBarreOutils controller = loader.getController();
-        	
-        	
-
         	primaryStage.setScene(new Scene(root));
+        	primaryStage.setTitle("Le Pendu");
         	primaryStage.show();
 
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
-   /* public static void setScene(File fichierFXML) {
-        try {
-        	FXMLLoader loader = new FXMLLoader(Main.class.getResource(fichierFXML));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            stagePrincipal.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
 
     public static void main(String[] args) {
