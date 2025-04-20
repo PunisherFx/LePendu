@@ -15,6 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.image.Image;
 
 
@@ -30,8 +33,27 @@ public class SceneJeuController {
     @FXML
     private Label labelAffichage;
     @FXML private ImageView labelImage;
+    private static SceneJeuController instance;
+    
+    
+    
+    public void initialize() {
+        instance = this;
+        appliquerTailleMot(); // appliquer dès l'ouverture
+    }
 
+    public static void mettreAJourTailleMot() {
+        if (instance != null) {
+            instance.appliquerTailleMot();
+        }
+    }
 
+    private void appliquerTailleMot() {
+        double taille = GestionOptions.getTaillePolice();
+        labelMot.setStyle("-fx-font-size: " + taille + "px;");
+    }
+
+ 
     public void setJeu(GestionJeu jeu) {
         this.jeu = jeu;
         majAffichageMot();   // ⬅️ pour afficher le mot avec des "_"

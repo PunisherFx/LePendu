@@ -22,10 +22,8 @@ public class Main extends Application {
         try {
         	FXMLLoader loader = new FXMLLoader(getClass().getResource("premiereScene.fxml"));
         	Parent root = loader.load();
-
         	ControleurBarreOutils controller = loader.getController();
-        	controller.setJeu(jeu);
-        	controller.setStage(primaryStage);
+        	
         	
 
         	primaryStage.setScene(new Scene(root));

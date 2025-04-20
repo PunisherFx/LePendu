@@ -20,6 +20,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -31,12 +32,6 @@ public class ControleurBarreOutils {
 	    private Stage boiteOptionsStage;
 	    private GestionJeu jeu;
 	    private Stage primaryStage;
-	    public void setJeu(GestionJeu jeu) {
-	    	this.jeu = jeu;
-	    }
-	    public void setStage(Stage stage) {
-	    	this.primaryStage = stage;
-	    }
 	    
 	    @FXML
 	    private void handleJouer(ActionEvent event) {
@@ -45,11 +40,9 @@ public class ControleurBarreOutils {
 	    	        Parent root = loader.load();
 
 	    	        SceneJeuController controller = loader.getController();
-
 	    	        GestionJeu jeu = new GestionJeu(getClass().getResource("Dico.txt").getFile());
 	    	        jeu.InitialiserPartie();
-
-	    	        controller.setJeu(jeu); // 💥 TRÈS IMPORTANT !
+	    	        controller.setJeu(jeu); // 💥 TRÈS IMPORTANT 
 
 	    	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    	        stage.setScene(new Scene(root));
@@ -65,11 +58,12 @@ public class ControleurBarreOutils {
 	            try {
 	                FXMLLoader loader = new FXMLLoader(getClass().getResource("boitStandard.fxml"));
 	                Parent root = loader.load();
-
+	                root.setStyle("-fx-background-color: #FFD966;");
 	                boiteOptionsStage = new Stage();
 	                boiteOptionsStage.setTitle("Options");
 	                boiteOptionsStage.setScene(new Scene(root));
 	                boiteOptionsStage.setResizable(false);
+
 	            } catch (Exception e) {
 	                e.printStackTrace();
 	            }
@@ -84,20 +78,23 @@ public class ControleurBarreOutils {
 	        dialogA.getButtonTypes().setAll(ButtonType.OK);
 	        dialogA.setTitle("Aide");
 	        dialogA.setHeaderText("Bienvenue dans l'aide du jeu");
-
-	        // === Partie support ===
-	        Label labelSupport = new Label("Support");
-	        TextArea areaSupport = new TextArea("Contact : support@pendu-jeu.com\nTéléphone : 06 12 34 56 78");
-	        areaSupport.setEditable(false);
-	        areaSupport.setWrapText(true);
-	        areaSupport.setPrefSize(200, 100);
-
-	        VBox boxSupport = new VBox();
-	        boxSupport.setSpacing(10);
-	        boxSupport.getChildren().add(areaSupport);
-
-	        // === Partie règles ===
-	        Label labelRegles = new Label("Règles du jeu");
+	        dialogA.getDialogPane().setStyle(
+	        	    "-fx-background-color: #FFD966;"
+	        	);
+	      
+	        TextArea Support = new TextArea("        SUPPORT\n\nContact : support@pendu-jeu.com\n Téléphone : 06 12 34 56 78");
+	        Support.setEditable(false);
+	        Support.setWrapText(true);
+	        Support.setPrefSize(200, 200);
+	        Support.setFont(Font.font("Arial", 13));
+	        Support.setStyle(
+	            "-fx-background-color: #B3B3B3;" +
+	            "-fx-border-radius: 15;" +
+	            "-fx-background-radius: 15;" +
+	            "-fx-border-color: #888;" +
+	            "-fx-padding: 10;"
+	        );
+	        
 	        TextArea areaRegles = new TextArea(
 	            "- Devinez le mot avant d’être pendu.\n" +
 	            "- Chaque mauvaise lettre enlève une vie.\n" +
@@ -106,36 +103,24 @@ public class ControleurBarreOutils {
 	        );
 	        areaRegles.setEditable(false);
 	        areaRegles.setWrapText(true);
-	        areaRegles.setPrefSize(300, 100);
-
-	        VBox boxRegles = new VBox();
-	        boxRegles.setSpacing(5);
-	        boxRegles.getChildren().add(areaRegles);
-
-	        // === Contenu global ===
+	        areaRegles.setPrefSize(250, 180);
+	        areaRegles.setFont(Font.font("Arial", 13));
+	        areaRegles.setStyle(
+	            "-fx-background-color: #B3B3B3;" +
+	            "-fx-border-radius: 15;" +
+	            "-fx-background-radius: 15;" +
+	            "-fx-border-color: #888;" +
+	            "-fx-padding: 10;"
+	        );
+	        
 	        HBox contenu = new HBox(20);
 	        contenu.setPadding(new Insets(10));
-	        contenu.getChildren().addAll(boxSupport, boxRegles);
+	        contenu.getChildren().addAll(Support, areaRegles);
+	        contenu.setStyle(
+	        		"-fx-background-color: #FFD966;");
 
 	        dialogA.getDialogPane().setContent(contenu);
 	        dialogA.showAndWait();
-	    
-
-
-	    	
-	    	  /* try {
-	    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("boiteAlert.fxml")); // Remplace par le bon nom
-	    	        Parent root = loader.load();
-
-	    	        Stage stage = new Stage();
-	    	        stage.setTitle("Aide");
-	    	        stage.setScene(new Scene(root));
-	    	        stage.setResizable(false);
-	    	        stage.show();
-
-	    	    } catch (Exception e) {
-	    	        e.printStackTrace();
-	    	    }*/
 	    }
 
 	    @FXML

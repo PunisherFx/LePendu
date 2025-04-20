@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BoiteOptionsController">
    <children>
       <Label text="Options">
@@ -17,7 +16,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <VBox alignment="CENTER">
+      <VBox fx:id="blocA" alignment="CENTER">
          <children>
             <Label alignment="CENTER" text="Taille de la police">
                <font>
@@ -44,7 +43,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" spacing="10.0">
+      <VBox fx:id="blocB" alignment="CENTER" spacing="10.0">
          <children>
             <Label text="Mode Sombre">
                <font>
