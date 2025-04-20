@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,18 +20,33 @@ public class BoiteOptionsController {
 
     @FXML
     private void initialize() {
-    	
+    	//On récupere la valeur du silder modifier 
     	taillePoliceSlider.setValue(GestionOptions.getTaillePolice());
-
-    	taillePoliceSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-            double taille = newVal.doubleValue();
+    	taillePoliceSlider.valueProperty().addListener((obs, ancienneValeur, nouevelleValeur) -> {
+            double taille = ancienneValeur.doubleValue();
             GestionOptions.setTaillePolice(taille);
-            SceneJeuController.mettreAJourTailleMot(); // méthode qu’on ajoute juste après
+            SceneJeuController.mettreAJourTailleMot(); 
         });
     	
-    	
-    	
-    	
+    	  ToggleGroup group = new ToggleGroup();
+    	    clairRadio.setToggleGroup(group);
+    	    sombreRadio.setToggleGroup(group);
+    	    if (GestionOptions.isModeSombre()) {
+    	    	sombreRadio.setSelected(true); 
+    	    } else {
+    	    	clairRadio.setSelected(true);
+    	    }
+    	    // on met ajour la scene en fonction du choix de l'utilisateur mode clair ou sombre 
+    	    group.selectedToggleProperty().addListener((obs, oldToggle, newToggle) -> {
+    	        if (newToggle == sombreRadio) {
+    	            GestionOptions.setModeSombre(true);
+    	        } else {
+    	            GestionOptions.setModeSombre(false);
+    	        }
+    	        SceneJeuController.mettreAJourMode();
+    	    });
+    	    
+    	// application du style comme dans la maquette 3 on utilisant du css
     	String styleBloc = "-fx-background-color: #e0e0e0;" +
                 "-fx-border-radius: 15;" +
                 "-fx-background-radius: 15;" +
@@ -43,20 +59,18 @@ public class BoiteOptionsController {
     		    "-fx-accent: #3399ff;"                    
     		);
     	validerButton.setStyle(
-    		    "-fx-background-color: #66FF66;" +  // vert clair
+    		    "-fx-background-color: #66FF66;" + 
     		    "-fx-font-weight: bold;" +
     		    "-fx-border-radius: 8;" +
     		    "-fx-background-radius: 8;"
     		);
 
     		annulerButton.setStyle(
-    		    "-fx-background-color: #FF4444;" +  // rouge vif
+    		    "-fx-background-color: #FF4444;" + 
     		    "-fx-font-weight: bold;" +
     		    "-fx-border-radius: 8;" +
     		    "-fx-background-radius: 8;"
     		);
-
-
     	clairRadio.setText("☀️ Clair");
     	sombreRadio.setText("🌙 Sombre");
         taillePoliceSlider.setMin(10);
@@ -74,10 +88,6 @@ public class BoiteOptionsController {
 
     @FXML
     private void handleAnnuler() {
-        fermerFenetre();
-    }
-
-    private void fermerFenetre() {
         Stage stage = (Stage) annulerButton.getScene().getWindow();
         stage.close();
     }

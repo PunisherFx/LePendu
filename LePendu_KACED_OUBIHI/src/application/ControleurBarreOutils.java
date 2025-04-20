@@ -1,28 +1,21 @@
 package application;
 import javafx.scene.Node;
 
-import java.awt.Label;
 import java.io.IOException;
-import java.util.Optional;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import java.util.Arrays;
-import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
+import javafx.application.Platform;
 
 public class ControleurBarreOutils {
 	  @FXML private Button jouerButton;
@@ -38,12 +31,10 @@ public class ControleurBarreOutils {
 	    	    try {
 	    	        FXMLLoader loader = new FXMLLoader(getClass().getResource("sceneJeu.fxml"));
 	    	        Parent root = loader.load();
-
 	    	        SceneJeuController controller = loader.getController();
 	    	        GestionJeu jeu = new GestionJeu(getClass().getResource("Dico.txt").getFile());
 	    	        jeu.InitialiserPartie();
-	    	        controller.setJeu(jeu); // 💥 TRÈS IMPORTANT 
-
+	    	        controller.setJeu(jeu);
 	    	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    	        stage.setScene(new Scene(root));
 	    	        stage.show();
@@ -125,6 +116,6 @@ public class ControleurBarreOutils {
 
 	    @FXML
 	    private void handleQuitter() {
-	        System.exit(0);
+	    	Platform.exit();
 	    }
 	}

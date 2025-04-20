@@ -15,10 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+
 
 
 public class SceneJeuController {
@@ -33,18 +31,36 @@ public class SceneJeuController {
     @FXML
     private Label labelAffichage;
     @FXML private ImageView labelImage;
-    private static SceneJeuController instance;
-    
-    
+    private static SceneJeuController sceneJeu;
+    @FXML
+    private BorderPane rootPane; 
+
+
+    public static void mettreAJourMode() {
+        if (sceneJeu != null) {
+        	sceneJeu.appliquerMode();
+        }
+    }
+
+    private void appliquerMode() {
+        boolean sombre = GestionOptions.isModeSombre();
+        if (sombre) {
+            rootPane.setStyle("-fx-background-color: radial-gradient(center 50% 50%, radius 90%, #1a1a1a, #999999);");
+        } else {
+            rootPane.setStyle("-fx-background-color: radial-gradient(center 50% 50%, radius 90%, white, #b8d9f3);");
+        }
+    }
     
     public void initialize() {
-        instance = this;
-        appliquerTailleMot(); // appliquer dès l'ouverture
+    	sceneJeu = this;
+        appliquerMode();
+        sceneJeu = this;
+        appliquerTailleMot();
     }
 
     public static void mettreAJourTailleMot() {
-        if (instance != null) {
-            instance.appliquerTailleMot();
+        if (sceneJeu != null) {
+        	sceneJeu.appliquerTailleMot();
         }
     }
 
@@ -52,27 +68,26 @@ public class SceneJeuController {
         double taille = GestionOptions.getTaillePolice();
         labelMot.setStyle("-fx-font-size: " + taille + "px;");
     }
-
- 
+    
     public void setJeu(GestionJeu jeu) {
         this.jeu = jeu;
-        majAffichageMot();   // ⬅️ pour afficher le mot avec des "_"
-        majAffichageVies();  // ⬅️ pour initialiser les vies
+        majAffichageMot();
+        majAffichageVies();
         labelAffichage.setText("pret pour cette nouvelle aventure");
         labelImage.setImage(new Image(getClass().getResource("/ressources/0.png").toExternalForm()));
     }
+    
     @FXML
     private void handleLettre(ActionEvent event) {
         Button boutonClique = (Button) event.getSource();
         String reponse = boutonClique.getText();
-
-        boutonClique.setDisable(true); // désactive le bouton après clic
+        boutonClique.setVisible(false);
         jeu.MemoriserLettreChoisie(reponse.charAt(0));
 
         Vector<Integer> pos = new Vector<>();
         if (jeu.ChercherLettreDansMot(reponse.charAt(0), pos) == 0) {
         	jeu.MAJNbErreurs();
-        	labelAffichage.setText("Raté !");
+        	labelAffichage.setText("La lettre n'est pas dans le mot erreur en plus");
         	majAffichageVies();
         	switch(jeu.getNbErreurs()){
         	case 1 :  labelImage.setImage(new Image(getClass().getResource("/ressources/PenduEtape1.png").toExternalForm()));
@@ -87,24 +102,16 @@ public class SceneJeuController {
             break;
         		
         	}
-
             if (jeu.MaxErreursDepasse()) {
-                chargerSceneFin(event, false); // défaite
+                chargerSceneFin(event, false); 
             }
-
         } else {
         	majAffichageMot();
-        	labelAffichage.setText("Bien joué !");
+        	labelAffichage.setText("Bien joué ! La lettre est dans le mot ");
             if (jeu.ToutTrouve()) {
-                chargerSceneFin(event, true); // victoire
+                chargerSceneFin(event, true);
             }
         }
-      /*  if (jeu.ChercherLettreDansMot(reponse.charAt(0), pos) == 0) {
-            labelAffichage.setText("Raté !");
-        } else {
-            labelAffichage.setText("Bien joué !");
-        }
-        majAffichageVies();*/
     }
 
     private void chargerSceneFin(ActionEvent event, boolean victoire) {
@@ -112,7 +119,7 @@ public class SceneJeuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("sceneDeFin.fxml"));
             Parent root = loader.load();
 
-            SceneFinControler controller = loader.getController(); // 💡 attention au bon nom ici
+            SceneFinControler controller = loader.getController();
             controller.setJeu(jeu);
             if (victoire) {
                 controller.afficherVictoire();
@@ -143,9 +150,6 @@ public class SceneJeuController {
     private void majAffichageVies() {
         int restantes = (jeu.getNbMaxErreurs() - jeu.getNbErreurs())+1;
         labelVie.setText("Vies restantes : " + restantes);
-    }
-    private void majMessage(String message) {
-        labelAffichage.setText(message);
     }
 
 }

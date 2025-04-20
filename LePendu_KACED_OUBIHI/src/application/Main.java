@@ -9,8 +9,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	private GestionJeu jeu;
-	
 	@Override
 	public void init() throws IOException {
 		 GestionJeu jeu = new GestionJeu(getClass().getResource("Dico.txt").getFile());
@@ -33,6 +31,17 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
+   /* public static void setScene(File fichierFXML) {
+        try {
+        	FXMLLoader loader = new FXMLLoader(Main.class.getResource(fichierFXML));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stagePrincipal.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+
 
     public static void main(String[] args) {
         launch(args);

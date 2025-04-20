@@ -23,14 +23,15 @@ public class SceneFinControler {
 	                   + "-fx-background-size: cover;"
 	                   + "-fx-background-position: center center;");
 	        labelAffichage.setText("🎉 Bien joué !\nVous avez réussi à trouver le mot " + jeu.getMotMystere());
-	        labelMessage.setText("Pouvez-vous faire mieux ? Un nouveau défi vous attend !");
+	        labelMessage.setText(" Tu as triomphé… sauras-tu le refaire ? Un nouveau défi vous attend ! "
+	        						+ "Tentez de battre ce record et montrez qui est le vrai maître du jeu !");
 	    }
 
 	    public void afficherDefaite() {
 	    	rootFin.setStyle("-fx-background-image: url('" + getClass().getResource("/ressources/defaite.png").toExternalForm() + "');"
 	                   + "-fx-background-size: cover;"
 	                   + "-fx-background-position: center center;");
-	        labelAffichage.setText("😞 Dommage !\nLe mot à trouver était " + jeu.getMotMystere());
-	        labelMessage.setText("Pas grave ! Rejouez pour prendre votre revanche !");
+	        labelAffichage.setText("☠️ PENDU !\nLe mot à trouver était " + jeu.getMotMystere());
+	        labelMessage.setText("Pouvez-vous faire mieux ? Une fin tragique… ou un nouveau départ ? Clique sur jouer!");
 	    }
 	}
